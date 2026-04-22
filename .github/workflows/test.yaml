@@ -8,7 +8,7 @@ on:
 jobs:
   test-code:
     runs-on: ubuntu-24.04
-    container: python:3.13.13-slim
+    container: python:3.10-slim
     env:
       MONGO_URL: ${{ secrets.MONGO_URL }}
     services:
