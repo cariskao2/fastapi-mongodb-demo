@@ -8,6 +8,7 @@ on:
 jobs:
   test-code:
     runs-on: ubuntu-24.04
+    container: python:3.13.13-slim
     services:
       mongo:
         image: mongo:6.0.2
@@ -19,10 +20,12 @@ jobs:
     steps:
       - name: checkout code
         uses: actions/checkout@v3
-      - uses: actions/setup-python@v6
-        name: set up py
-        with:
-          python-version: 3.8
+
+      # 有在container加上python這裡就可以註解掉
+      #  - uses: actions/setup-python@v6
+      #    name: set up py
+      #    with:
+      #      python-version: 3.8
       - name: install requirements
         run: pip install -r requirements.txt
       - name: run py test
